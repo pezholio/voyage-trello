@@ -3,4 +3,12 @@ layout: default
 title: Key Highlights
 ---
 
-dfsfdsfsd
+<ul>
+  {% for card in site.data.cards %}
+  <li style="background-color: #{{ site.data.colours[forloop.index0].bg }};">
+    <a href="{{ card.link }}" style="color: #{{ site.data.colours[forloop.index0].colour }};">
+      {{ card.title }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>

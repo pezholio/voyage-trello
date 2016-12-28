@@ -16,6 +16,23 @@ html, body{
   height: 100%;
 }
 
+ul {
+  margin: 60px 0 0 0;
+  padding: 0 12px;
+}
+
+li {
+  background-color: red;
+  padding: 4px;
+  margin-bottom: 7px;
+   a {
+     color: #fff;
+     display: block;
+     text-decoration: none;
+     font-size: 1.2em;
+   }
+}
+
 h1 {
   position: absolute;
   top: 2px;
@@ -31,87 +48,6 @@ body {
   background: #000;
 }
 
-ul.grid {
-  top: 0;
-  position: relative;
-  height: 90%;
-  margin: 0;
-  padding: 0;
-
-  > li {
-    position: absolute;
-    display: table;
-    border: 3px solid #000;
-    box-sizing: border-box;
-    overflow: visible;
-
-    > div {
-      height: 100%;
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-  }
-
-}
-
-@for $i from 1 through 30 {
-
-  $ratio: 100.0 / $i;
-
-  ul.rows-#{$i} {
-
-    > li {
-      height: 1.0% * $ratio;
-    }
-
-    @for $r from 1 through $i {
-
-      > li.row-#{$r} {
-        top: 1.0% * $ratio * ($r - 1);
-      }
-
-      > li.height-#{$r} {
-        height: 1.0% * $ratio* $r;
-      }
-
-    }
-
-  }
-
-  ul.cols-#{$i} {
-
-    > li {
-      width: 1.0% * $ratio;
-    }
-
-    @for $r from 1 through $i {
-
-      > li.col-#{$r} {
-        left: 1.0% * $ratio * ($r - 1);
-      }
-
-      > li.width-#{$r} {
-        width: 1.0% * $ratio* $r;
-      }
-
-    }
-
-  }
-
-}
-
 .logo {
   max-height: 8%;
-}
-
-@media all and ( max-width: 600px ) {
-  ul.grid > li {
-    position: static;
-    width: 100% !important;
-
-    div {
-      position: relative;
-    }
-  }
 }
